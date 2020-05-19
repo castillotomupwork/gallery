@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        <fieldset>
+            {% include 'inc/flash_messages.html.twig' %}
+            
+            <legend>New Category</legend>
+            <div class="form-group">
+                <label for="categoryName" class="col-lg-2 control-label">Category Name</label>
+                <div class="col-lg-10">
+                    {{ form_widget(form.category_name) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="categoryLink" class="col-lg-2 control-label">Category Link</label>
+                <div class="col-lg-10">
+                    {{ form_widget(form.category_link) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    {{ form_widget(form.save) }}
+                </div>
+            </div>
+        </fieldset>
+    {{ form_end(form) }}
+{% endblock %}

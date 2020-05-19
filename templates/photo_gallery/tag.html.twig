@@ -1,0 +1,13 @@
+{% if photos %}
+    {% for photo in photos %}
+        <a href="#" class="gallery-item" data-item="{{ photo.item }}" data-tag="{{ tag }}">
+            <img src="{{ photo.url }}" />
+        </a>
+    {% endfor %}
+{% else %}
+    <p>No photos for {{ tag }}.</p>
+{% endif %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/tag.js') }}"></script>
+{% endblock %}

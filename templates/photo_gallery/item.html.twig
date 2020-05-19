@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            {% if url is not null  %}
+                <img src="{{ url }}" />
+            {% else %}
+                <p>Unable to get photo</p>
+            {% endif %}
+        </div>
+        <div class="col-sm-4 text-left">
+            <div class="row">
+                <div class="col-sm-9 item-header">
+                    {% if info is not null %}
+                        <h3>{{ info.title }}</h3>
+                    {% endif %}
+                </div>
+                <div class="col-sm-3">
+                    <a href="#" class="btn btn-primary" id="galleryList" data-tag="{{ tag }}"> < </a>
+                </div>
+            </div>
+            <div class="item-info">
+                {% if info is not null %}
+                    <p>{{ info.description }}</p>
+                {% else %}
+                    <p>Unable to get Info<p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/item.js') }}"></script>
+{% endblock %}

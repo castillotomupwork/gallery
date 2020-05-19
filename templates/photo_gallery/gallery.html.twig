@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block body %}
+    <h1 id="tagTitle" class="text-center">Gallery Categories</h1>
+    {% if categories %}
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-3">
+                    <div class="sidebar-sticky">
+                        <ul class="list-group">
+                        {% for category in categories %}
+                            <li class="list-group-item">
+                                <a href="#" class="gallery-tag" data-tag="{{ category.categoryName|lower }}" data-title="{{ category.categoryName }}">{{ category.categoryName }}</a>
+                            </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                </nav>
+                <div class="col-md-9">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="galleryBox" class="text-center">
+                                <p>Select a category from the left to see images here.</p>
+                            </div>
+                            <div id="loadingBox" class="text-center hidden">
+                                <img src="{{ asset('img/loading.gif') }}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>No gallery categories to display</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/gallery.js') }}"></script>
+{% endblock %}

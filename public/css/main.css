@@ -1,0 +1,39 @@
+.panel-body {
+    min-height: 300px;
+}
+
+#galleryBox a {
+    text-decoration: none;
+}
+
+#galleryBox a:hover {
+    text-decoration: none;
+}
+
+#galleryBox a img {
+    margin: 1px;
+}
+
+.list-group-item a:hover {
+    text-decoration: none;
+}
+
+.list-group-item.active a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.item-header h3 {
+    margin-top: 6px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;;
+}
+
+.item-info {
+    margin-top: 20px;
+}
+
+.item-info p {
+    word-wrap: break-word;
+}

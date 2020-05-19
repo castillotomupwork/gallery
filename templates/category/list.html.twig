@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+    {% if categories %}
+        <table id="categories" class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{ category.categoryName }}</td>
+                        <td>
+                            <a href="/category/edit/{{ category.id }}" class="btn btn-primary">Edit</a>
+                            <a href="#" class="btn btn-primary delete-category" data-id="{{ category.id }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No categories to display</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/category.js') }}"></script>
+{% endblock %}
