@@ -48,17 +48,14 @@ class CategoryController extends AbstractController
             ->getForm();
         
         $form->handleRequest($request);
-        
-//        if ($form->isSubmitted() && $form->isValid()) {
+
         if ($form->isSubmitted()) {
             
             $errors = $validator->validate($category);
-//            dump($errors);
-//            die();
+
             if (count($errors) > 0) {
                 $messages = [];
                 foreach ($errors as $violation) {
-//                     $messages[$violation->getPropertyPath()][] = $violation->getMessage();
                      $messages[] = $violation->getMessage();
                 }
                 $this->addFlash('danger', implode('<br />', $messages));
@@ -71,16 +68,6 @@ class CategoryController extends AbstractController
 
                 return $this->redirectToRoute('category_list');
             }
-//            
-//            if ($form->isValid()) {
-//                $category = $form->getData();
-//
-//                $entityManager = $this->getDoctrine()->getManager();
-//                $entityManager->persist($category);
-//                $entityManager->flush();
-//
-//                return $this->redirectToRoute('category_list');
-//            }
         }
         
         return $this->render('category/new.html.twig', ['form' => $form->createView()]);
