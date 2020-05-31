@@ -12,7 +12,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/login", name="login")
      */
-    public function login(Request $request, AuthenticationUtils $utils)
+    public function loginAction(Request $request, AuthenticationUtils $utils)
     {
         if (is_object($this->getUser())) {
             return $this->redirectToRoute('gallery');
@@ -34,7 +34,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/logout", name="logout")
      */
-    public function logout()
+    public function logoutAction()
     {
         
     }

@@ -7,3 +7,10 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+.idea/deployment.xml
+.idea/gallery.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/php.xml
+.idea/vcs.xml
+.idea/.gitignore

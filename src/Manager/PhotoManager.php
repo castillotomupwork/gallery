@@ -3,7 +3,6 @@
 namespace App\Manager;
 
 use Samwilson\PhpFlickr\PhpFlickr;
-use Samwilson\PhpFlickr\PhotosApi;
 
 /**
  * Class PhotoManager

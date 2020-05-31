@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Temperature Tracker{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    <fieldset>
+        {% include 'inc/flash_messages.html.twig' %}
+
+        <legend>Add Temperature</legend>
+        <div class="form-group">
+
+            <label for="categoryName" class="col-lg-2 control-label">Temperature</label>
+            <div class="col-lg-10">
+                {{ form_widget(form.temperature) }}
+                <small class="text-danger">
+                    {{ form_errors(form.temperature) }}
+                </small>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </fieldset>
+    {{ form_end(form) }}
+
+    <fieldset>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>Highest Temperature</td>
+                <td>{{ record.highest }}</td>
+            </tr>
+            <tr>
+                <td>Lowest Temperature</td>
+                <td>{{ record.lowest }}</td>
+            </tr>
+            <tr>
+                <td>Average Temperature</td>
+                <td>{{ record.average }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </fieldset>
+{% endblock %}

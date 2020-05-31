@@ -11,12 +11,19 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+/**
+ * Class CategoryController
+ *
+ * @Route("/category")
+ *
+ * @package App\Controller
+ */
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category/list", name="category_list", methods={"GET"})
+     * @Route("/list", name="category_list", methods={"GET"})
      */
-    public function list()
+    public function listAction()
     {
         $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
         
@@ -24,9 +31,9 @@ class CategoryController extends AbstractController
     }
     
     /**
-     * @Route("/category/new", name="category_new", methods={"GET", "POST"})
+     * @Route("/new", name="category_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, ValidatorInterface $validator)
+    public function newAction(Request $request, ValidatorInterface $validator)
     {
         $category = new Category();
         
@@ -72,9 +79,9 @@ class CategoryController extends AbstractController
     }
     
     /**
-     * @Route("/category/edit/{id}", name="category_edit", methods={"GET", "POST"})
+     * @Route("/edit/{id}", name="category_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, $id)
+    public function editAction(Request $request, $id)
     {
         $category = new Category();
         $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
@@ -103,9 +110,9 @@ class CategoryController extends AbstractController
     }
     
     /**
-     * @Route("/category/delete/{id}", methods={"DELETE"})
+     * @Route("/delete/{id}", methods={"DELETE"})
      */
-    public function delete($id)
+    public function deleteAction($id)
     {
         $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
         

@@ -7,6 +7,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class PhotoGalleryController
+ *
+ * @Route("photo_gallery")
+ *
+ * @package App\Controller
+ */
 class PhotoGalleryController extends AbstractController
 {
     
@@ -22,7 +29,7 @@ class PhotoGalleryController extends AbstractController
     
     
     /**
-     * @Route("/photo_gallery/tag/{tag}", name="photo_gallery_tag", methods={"GET"})
+     * @Route("/tag/{tag}", name="photo_gallery_tag", methods={"GET"})
      */
     public function tagAction($tag, $photoManager)
     {
@@ -35,7 +42,7 @@ class PhotoGalleryController extends AbstractController
     }
     
     /**
-     * @Route("/photo_gallery/item/{tag}", name="photo_gallery_item", methods={"POST"})
+     * @Route("/item/{tag}", name="photo_gallery_item", methods={"POST"})
      */
     public function itemAction(Request $request, $tag, $photoManager)
     {
