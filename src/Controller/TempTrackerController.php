@@ -39,7 +39,7 @@ class TempTrackerController extends AbstractController
 
         }
 
-        $record = [];
+        $record = ['highest' => 0, 'lowest' => 0, 'average' => 0];
         $highest = $tempTrackerRepository->getHighest();
         if ($highest) {
             $record['highest'] = $highest;
