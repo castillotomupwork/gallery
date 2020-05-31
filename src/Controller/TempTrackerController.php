@@ -50,7 +50,7 @@ class TempTrackerController extends AbstractController
         }
         $average = $tempTrackerRepository->getAverage();
         if ($average) {
-            $record['average'] = round($average, 2);
+            $record['average'] = number_format((float)$average, 2, '.', '');
         }
 
         return $this->render('temp_tracker/index.html.twig', ['form' => $form->createView(), 'record' => $record]);
