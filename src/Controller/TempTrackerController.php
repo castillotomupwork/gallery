@@ -40,15 +40,15 @@ class TempTrackerController extends AbstractController
         }
 
         $record = ['highest' => 0, 'lowest' => 0, 'average' => 0];
-        $highest = $tempTrackerRepository->getHighest();
+        $highest = $tempTrackerRepository->highest();
         if ($highest) {
             $record['highest'] = $highest;
         }
-        $lowest = $tempTrackerRepository->getLowest();
+        $lowest = $tempTrackerRepository->lowest();
         if ($lowest) {
             $record['lowest'] = $lowest;
         }
-        $average = $tempTrackerRepository->getAverage();
+        $average = $tempTrackerRepository->average();
         if ($average) {
             $record['average'] = number_format((float)$average, 2, '.', '');
         }

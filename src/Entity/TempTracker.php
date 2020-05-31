@@ -30,12 +30,12 @@ class TempTracker
      */
     private $createdAt = null;
 
-    public function getId(): ?int
+    public function id(): ?int
     {
         return $this->id;
     }
 
-    public function getTemperature(): ?string
+    public function temperature(): ?string
     {
         return $this->temperature;
     }
@@ -47,7 +47,7 @@ class TempTracker
         return $this;
     }
 
-    public function getCreatedAt()
+    public function createdAt()
     {
         if (is_null($this->createdAt)) {
             $this->createdAt = '';
@@ -80,14 +80,14 @@ class TempTracker
     {
         $valid = true;
 
-        if (!is_numeric($this->getTemperature())) {
+        if (!is_numeric($this->temperature())) {
             $context->buildViolation('Please enter a valid number.')
                 ->atPath('temperature')
                 ->addViolation();
             $valid = false;
         }
 
-        if ($valid === true && !preg_match('/^[+\-]?\d+(\.(\d{2}))?$/', $this->getTemperature()))
+        if ($valid === true && !preg_match('/^[+\-]?\d+(\.(\d{2}))?$/', $this->temperature()))
         {
             $context->buildViolation('Up to 2 decimal points only.')
                 ->atPath('temperature')

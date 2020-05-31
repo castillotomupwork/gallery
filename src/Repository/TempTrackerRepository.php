@@ -19,7 +19,7 @@ class TempTrackerRepository extends ServiceEntityRepository
         parent::__construct($registry, TempTracker::class);
     }
 
-    public function getHighest()
+    public function highest()
     {
         return $this->createQueryBuilder('t')
             ->select('MAX(t.temperature)')
@@ -27,7 +27,7 @@ class TempTrackerRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
     }
 
-    public function getLowest()
+    public function lowest()
     {
         return $this->createQueryBuilder('t')
             ->select('MIN(t.temperature)')
@@ -35,7 +35,7 @@ class TempTrackerRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
     }
 
-    public function getAverage()
+    public function average()
     {
         return $this->createQueryBuilder('t')
             ->select('AVG(t.temperature)')
